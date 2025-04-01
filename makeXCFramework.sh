@@ -5,3 +5,5 @@ xcodebuild archive -project CrashReporter.xcodeproj -scheme "CrashReporter iOS F
 xcodebuild archive -project CrashReporter.xcodeproj -scheme "CrashReporter iOS Framework" -destination "generic/platform=macOS,variant=Mac Catalyst" -archivePath "archives/CrashReporter-Mac_Catalyst"
 xcodebuild archive -project CrashReporter.xcodeproj -scheme "CrashReporter macOS Framework" -destination "generic/platform=macOS" -archivePath "archives/CrashReporter-macOS"
 xcodebuild -create-xcframework -archive archives/CrashReporter-iOS.xcarchive -framework CrashReporter.framework -archive archives/CrashReporter-iOS_Simulator.xcarchive -framework CrashReporter.framework -archive archives/CrashReporter-Mac_Catalyst.xcarchive -framework CrashReporter.framework -archive archives/CrashReporter-macOS.xcarchive -framework CrashReporter.framework -output xcframeworks/CrashReporter.xcframework
+# Codesign the xcframework for authenticity. It will get resigned by app developer.
+codesign -s "Apple Distribution: BugSplat, LLC (TN6R4Q475K)"  -f --timestamp xcframeworks/CrashReporter.xcframework
