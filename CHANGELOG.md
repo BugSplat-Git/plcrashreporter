@@ -1,5 +1,19 @@
 # PLCrashReporter Change Log
 
+## Version 1.12.0
+
+* **[Improvement]** Make crash report size configurable.
+
+___
+
+## Version 1.11.3
+
+* **[Improvement]** Update target iOS and tvOS version to 12.0.
+* **[Improvement]** Support Xcode 16 build.
+* **[Fix]** Fix endless loop when PLCrashReporter was set up during `load`.
+
+___
+
 ## Version 1.11.2
 
 * **[Improvement]** Update PLCrashReporter to include privacy manifest.
